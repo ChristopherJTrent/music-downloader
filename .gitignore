@@ -35,3 +35,8 @@ out/
 
 ### VS Code ###
 .vscode/
+
+
+### build files ###
+src/main/resources/static/assets/index-*
+src/main/resources/static/index.html

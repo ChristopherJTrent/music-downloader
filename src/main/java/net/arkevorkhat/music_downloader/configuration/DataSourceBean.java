@@ -1,4 +1,4 @@
-package net.arkevorkhat.music_downloader.common;
+package net.arkevorkhat.music_downloader.configuration;
 
 import javax.sql.DataSource;
 
@@ -15,7 +15,7 @@ public class DataSourceBean {
 	@ConfigurationProperties(prefix = "spring.datasource")
 	@Bean
 	@Primary
-	public DataSource getDataSource() {
+	DataSource getDataSource() {
 		var env = System.getenv();
 		return DataSourceBuilder.create()
 			.url(env.getOrDefault("DATABASE_URL", "jdbc:h2:file:/data/db"))

@@ -19,17 +19,22 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.springframework.boot:spring-boot-starter-security")
+	//implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-webmvc")
-	implementation("org.springframework.boot:spring-boot-starter-websocket")
 	runtimeOnly("com.mysql:mysql-connector-j")
 	runtimeOnly("org.postgresql:postgresql")
 	runtimeOnly("com.h2database:h2")
+	
+	implementation("com.auth0:java-jwt:4.4.0")
+
+	compileOnly("org.projectlombok:lombok")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-security-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
-	testImplementation("org.springframework.boot:spring-boot-starter-websocket-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+	developmentOnly("org.springframework.boot:spring-boot-devtools")
 }
 
 tasks.withType<Test> {
