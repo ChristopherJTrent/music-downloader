@@ -15,7 +15,6 @@ FROM bellsoft/liberica-runtime-container:jdk-25-stream-musl AS optimizer
 WORKDIR /home/app
 COPY --from=builder /home/app/music_downloader/build/libs/*.jar music_downloader.jar
 RUN java -Djarmode=tools -jar music_downloader.jar extract --layers --launcher --destination ./music_downloader
-RUN ls /home/app
 
 FROM bellsoft/liberica-openjdk-alpine:25
 EXPOSE 8080
