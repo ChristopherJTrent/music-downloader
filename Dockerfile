@@ -5,7 +5,7 @@ RUN npm install && npm install typescript
 RUN npm run build
 
 FROM bellsoft/liberica-runtime-container:jdk-25-stream-musl AS builder
-ADD . /home/app/music_downloader
+ADD --exclude=./frontend . /home/app/music_downloader
 COPY --from=frontend_builder /music_downloader/src/main/resources/static /home/app/music_downloader/src/main/resources/static
 WORKDIR /home/app/music_downloader
 RUN ./gradlew bootJar
