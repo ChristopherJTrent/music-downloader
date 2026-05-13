@@ -1,9 +1,9 @@
 package net.arkevorkhat.music_downloader.common;
 
-import net.arkevorkhat.music_downloader.contracts.AlbumDownloadRequest;
+import net.arkevorkhat.music_downloader.contracts.MusicDownloadRequest;
 
 public class YTDLPCommandBuilderFactory {
-	public static YTDLPCommandBuilder createFromAlbumDownloadRequest(AlbumDownloadRequest request) {		
+	public static YTDLPCommandBuilder createFromAlbumDownloadRequest(MusicDownloadRequest request) {		
 		var builder = new YTDLPCommandBuilder();
 		builder.withUrl(request.URL());
 		var artist = request.Artist();

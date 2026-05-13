@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.arkevorkhat.music_downloader.common.YTDLPCommandBuilder;
 import net.arkevorkhat.music_downloader.common.YTDLPCommandBuilderFactory;
-import net.arkevorkhat.music_downloader.contracts.AlbumDownloadRequest;
+import net.arkevorkhat.music_downloader.contracts.MusicDownloadRequest;
 import net.arkevorkhat.music_downloader.contracts.SimpleDownloadRequest;
 import net.arkevorkhat.music_downloader.services.interfaces.IAlbumDownloaderService;
 
@@ -31,7 +31,7 @@ public class DownloadController {
 	}
 	@PostMapping("/download/album")
 	public String albumDownload(
-			@RequestBody AlbumDownloadRequest entity, 
+			@RequestBody MusicDownloadRequest entity, 
 			@RequestParam(required = false) String dryrun
 	) {
 		var builder = YTDLPCommandBuilderFactory.createFromAlbumDownloadRequest(entity);
@@ -44,7 +44,7 @@ public class DownloadController {
 	}
 	@PostMapping("/download/albums")
 	public String albumsDownload(
-			@RequestBody AlbumDownloadRequest[] entity, 
+			@RequestBody MusicDownloadRequest[] entity, 
 			@RequestParam(required = false) String dryrun, 
 			@RequestParam(defaultValue = "false") boolean redownload
 	) {

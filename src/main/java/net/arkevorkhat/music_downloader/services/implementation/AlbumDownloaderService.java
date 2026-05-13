@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import net.arkevorkhat.music_downloader.common.Pair;
 import net.arkevorkhat.music_downloader.common.YTDLPCommandBuilderFactory;
-import net.arkevorkhat.music_downloader.contracts.AlbumDownloadRequest;
+import net.arkevorkhat.music_downloader.contracts.MusicDownloadRequest;
 import net.arkevorkhat.music_downloader.entity.RequestedAlbum;
 import net.arkevorkhat.music_downloader.services.interfaces.IAlbumDownloaderService;
 import net.arkevorkhat.music_downloader.services.interfaces.IRequestedAlbumService;
@@ -22,7 +22,7 @@ public class AlbumDownloaderService implements IAlbumDownloaderService {
 	@Autowired IRequestedAlbumService albumService;
 
 	@Override
-	public void DownloadAsync(AlbumDownloadRequest... albums) {
+	public void DownloadAsync(MusicDownloadRequest... albums) {
 		var pairs = Stream.of(albums)
 			.map((v) -> new Pair<>(
 				YTDLPCommandBuilderFactory.createFromAlbumDownloadRequest(v),
